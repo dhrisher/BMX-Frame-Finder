@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*-------------------Colour variables------------------------*/
+
+:root {
+  --black: black;
+  --white: #fff;
+  --color1: #e3e3e3;
+  --color2: #967c2a;
+  --rangeFocus: #9e9e9e;
+}
+
+/*-------------Style Body/general------------------------------------*/
+
+body {
+  font-family: 'Bebas Neue', cursive;
+  margin: 1.5vh;
+}
+
+p {
+  margin: 0px;
+  font-size: 17px;
+}
+
+.page_container {
+  margin: auto;
+  max-width: 1100px;
+  min-width: 930px;
+}
+
+a:link {
+  text-decoration: none;
+  color: var(--white);
+}
+
+a:visited {
+  text-decoration: none;
+  color: var(--white);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--black);
+}
+
+a:active {
+  text-decoration: none;
+  color: var(--white);
+}
+
+/* ------------------Remove range styling------------------- */
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 90%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/*--------------------------Heading-----------------------------*/
+
+.heading-container {
+  text-align: center;
+}
+
+#page-heading {
+  font-size: 2.5em;
+  color: var(--color2);
+}
+
+/* -------------------------Re-style ranges-------------------- */
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 90%;
+  height: 13px;
+  cursor: pointer;
+  background: var(--color1);
+  border-radius: 200px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--rangeFocus);
+}
+
+input[type=range]::-moz-range-track {
+  width: 90%;
+  height: 13px;
+  cursor: pointer;
+  background: var(--color1);
+  border-radius: 200px;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 20px 0px 20px 20px;
+  background: black;
+  cursor: pointer;
+  margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 20px 0px 20px 20px;
+  background: black;
+  cursor: pointer;
+}
+
+
+/* ------------------------Form styling--------------------------------- */
+
+.form_header {
+  font-size: 1.5em;
+}
+
+.form_container {
+  text-align: center;
+  height: auto;
+}
+
+.range_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: var(--color1);
+  height: 27vh;
+  min-height: 250px;
+  padding: 1.5vh;
+}
+
+.input_section_outer {
+  display: inline-block;
+  width: 33.3333%;
+  text-align: center;
+  height: 100%;
+}
+
+.input_section_inner {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  text-align: center;
+}
+
+/* inner segments of selection*/
+.input_section_inner2 {
+  display: block;
+}
+
+#inner1 {
+  padding-top: 2.5%;
+  height: 12.5%;
+}
+
+#inner2 {
+  display: flex;
+  align-items: flex-end;
+  height: 57%;
+  margin-bottom: 3%;
+}
+
+#inner3 {
+  height: 7%;
+  margin-bottom: 3%;
+}
+
+#inner4 {
+  height: 12%;
+  margin: 0.9vh 1vh 0 1vh;
+  margin-bottom: 3%;
+}
+
+#TPS {
+  text-align: justify;
+  font-size: 1em;
+}
+
+#TPS:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.form_image {
+  height: 100%;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+#disc_image1 {
+    position: absolute;
+    z-index: 2;
+    display: none;
+    width: 100%;
+    animation: push 0.5s linear 1;
+
+}
+
+#disc_image2 {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    animation: push 0.5s linear 1;
+
+}
+
+#disc_image3 {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    width: 100%;
+    animation: push 0.5s linear 1;
+}
+
+#price_image {
+  height: 88%;
+  animation: push 0.5s linear 1;
+}
+
+#height_image {
+    height: 91%;
+    animation: push 0.5s linear;
+
+}
+
+
+/*---------------------------*/
+
+ #middle_section {
+  margin: 1.5vh;
+}
+
+/*----search button----------*/
+
+input[type=submit] {
+    border-radius: 50px;
+    border: 0;
+    width: 80%;
+    height: 100%;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.7em;
+}
+
+input[type=submit]:hover {
+    color: var(--color2);
+    cursor: pointer;
+}
+
+.search-div {
+  position: relative;
+  height: 5vh;
+  min-height: 37px;
+  width: 100%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+
+}
+
+.line-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.submit-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.search-line {
+    height: 2.5px;
+    background-color: black;
+    width: 95%;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+/*results styling------------------------------------------*/
+
+.result_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: var(--color1);
+  height: 35vh;
+  min-height: 270px;
+  padding: 1.5vh;
+  filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+  margin-top: 10px;
+}
+
+.result_section {
+  position: relative;
+  display: inline-block;
+  width: 39%;
+  text-align: center;
+  height: 100%;
+  background-color: var(--white);
+}
+
+.result_section.center {
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  height: 100%;
+  background-color: var(--black);
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+}
+
+.result_section.right {
+  display: flex;
+  margin-left: 0px;
+  flex-direction: column;
+  background-color: var(--color1);
+}
+
+.buy_button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 85%;
+  left: 70%;
+  background-color: var(--color2);
+  color: var(--white);
+  height: 10%;
+  width: 23%;
+  animation: blur_reveal 2s linear;
+
+}
+
+.buy_button:hover {
+  color: var(--black);
+}
+
+.product_name {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5%;
+  left: 5%;
+  color: var(--black);
+  animation: blur_reveal 2s linear;
+
+}
+
+.product_price {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 85%;
+  left: 0%;
+  background-color: var(--white);
+  color: var(--black);
+  height: 10%;
+  width: 23%;
+  animation: blur_reveal 2s linear;
+
+}
+
+.product_image {
+  height: 100%;
+  animation: blur_reveal 2s linear;
+}
+
+.center_textbox {
+  display: flex;
+  align-items: center;
+  height: 25%;
+  margin-left: 6%;
+}
+
+.center_textbox.right {
+  margin-left: 0px;
+  justify-content: space-between;
+}
+
+#TPS2 {
+  font-size: 1.3em;
+}
+
+p.result_text {
+  color: white;
+}
+
+p.result_text#title {
+  font-size: 2.3em;
+}
+
+.stat_bar {
+  position: relative;
+  background-color: var(--white);
+  height: 35%;
+  width: 100%;
+}
+
+.stat_indicator {
+  height: 100%;
+  width: 7%;
+  background-color: var(--color2);
+  animation: stat_slider 1.3s ease-out;
+}
+
+.stat_indicator.hta {
+  position: absolute;
+  left: 63%;
+}
+
+.stat_indicator.st {
+  position: absolute;
+  left: 10%;
+}
+
+.stat_indicator.cs {
+  position: absolute;
+  left: 87.833%;
+}
+/*animations-----------------------------------------------*/
+
+.pagination {
+    margin: 10px 10px 10px 0px;
+}
+
+#pagination {
+    color: var(--black);
+}
+
+#pagination:hover {
+    color: var(--color2);
+}
+
+/*animations-----------------------------------------------*/
+
+@keyframes push {
+  0%  {opacity: 0.5;}
+  50% {transform: scale(0.9);}
+}
+
+@keyframes blur_reveal {
+  0%  {filter: blur(5px);}
+}
+
+@keyframes stat_slider {
+  0%  {left:0%;}
+}

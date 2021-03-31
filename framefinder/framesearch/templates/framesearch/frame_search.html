@@ -1,0 +1,175 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style/frame_search_style.css' %}">
+    <title>BMX Frame Sizing</title>
+</head>
+
+<body>
+    <div class="page_container">
+      <div class="heading-container">
+        <p id="page-heading">BMX FRAME Sizing</p>
+      </div>
+      <div class="form_container">
+        <form action="" class="bike_form" method="POST">
+          {% csrf_token %}
+          <div class="range_container">
+            <div class="input_section_outer">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Height</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <img id="height_image" class="form_image" src="https://static.thenounproject.com/png/1220594-200.png">
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="height_slider" name="height_slider" value="{{ height }}" min="0" max="18" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="height_text">5'7"</p>
+                </div>
+              </div>
+            </div>
+            <div class="input_section_outer" id="middle_section">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Discipline</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <div class="form_image">
+                    <img id="disc_image1" class="form_image" src="https://static.thenounproject.com/png/113123-200.png" alt="discipline" width="100">
+                    <img id="disc_image2" class="form_image" src="https://static.thenounproject.com/png/35791-200.png" alt="discipline" width="100">
+                    <img id="disc_image3" class="form_image" src="https://www.scrappinstuff.com/store/images/RBS/BMX%20Bike.jpg" alt="discipline" width="100">
+                  </div>
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="disc_slider" name="disc_slider" value="{{ discipline }}" min="0" max="18" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="TPS">Trails/Pumptrack -Park- Street/Flatland</p>
+                </div>
+              </div>
+            </div>
+            <div class="input_section_outer">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Price</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <img id="price_image" class="form_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Double-barred_dollar_sign.svg/1200px-Double-barred_dollar_sign.svg.png" alt="Dollar sign">
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="price_slider" name="price_slider" value="{{ price }}" min="0" max="8" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="price_text">less than: £8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-div">
+            <div class="line-div">
+              <div class="search-line"></div>
+            </div>
+            <div class="submit-div">
+              <input type="submit" value="Search">
+            </div>
+          </div>
+          <label for="search_filter">Order by:</label>
+          <select id="search_filter" name="filter_options">
+            <option value="suitability" {{ order_by_s }}>Suitability</option>
+            <option value="high_to_low" {{ order_by_h }}>Price: high to low</option>
+            <option value="low_to_high" {{ order_by_l }}>Price: low to high</option>
+          </select>
+        </form>
+      </div>
+
+      <!--Components result box-->
+
+      {% for frame in page_obj %}
+      <div class="result_container">
+
+        <div class="result_section">
+          <img class="product_image" src="{{ frame.image_url }}" alt="BMX_Frame">
+          <div class="buy_button">
+            <p><a href="{{ frame.link }}">BUY</a></p>
+          </div>
+          <div class="product_name">
+            <p>{{ frame.name }}</p>
+          </div>
+          <div class="product_price">
+            <p>£{{ frame.price }}</p>
+          </div>
+        </div>
+
+        <div class="result_section center">
+          <div class="center_textbox">
+            <p class="result_text" id="title">DIMENSIONS</p>
+          </div>
+          <div class="center_textbox">
+            <p class="result_text">HEAD TUBE ANGLE: <a id="head_tube_angle">{{ frame.head_tube_angle }} Degrees</a></p>
+          </div>
+          <div class="center_textbox">
+            <p class="result_text">SEAT TUBE ANGLE: <a id="seat_tube_angle">{{ frame.seat_tube_angle }} Degrees</a></p>
+          </div>
+          <div class="center_textbox">
+            <p class="result_text">CHAINSTAY: <a id="chainstay">{{ frame.chainstay }} Inches</a></p>
+          </div>
+        </div>
+
+        <div class="result_section right">
+          <div class="center_textbox right">
+            <div><p id="TPS2">Trails/Pumptrack</p></div>
+            <div><p id="TPS2">-Park-</p></div>
+            <div><p id="TPS2">Street/Flatland</p></div>
+          </div>
+          <div class="center_textbox right">
+            <div class="stat_bar">
+              <div class="stat_indicator hta" style="left:{{ frame.head_tube_processed }}%"></div>
+            </div>
+          </div>
+          <div class="center_textbox right">
+            <div class="stat_bar">
+              <div class="stat_indicator st" style="left:{{ frame.seat_tube_processed }}%"></div>
+            </div>
+          </div>
+          <div class="center_textbox right">
+            <div class="stat_bar">
+              <div class="stat_indicator cs" style="left:{{ frame.chainstay_processed }}%"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+
+      <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" id="pagination">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}" id="pagination">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" id="pagination">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" id="pagination">last &raquo;</a>
+            {% endif %}
+        </span>
+</div>
+
+      <script src="{% static 'javascript/frame_search_js.js' %}"></script>
+
+</body>
+
+</html>
+

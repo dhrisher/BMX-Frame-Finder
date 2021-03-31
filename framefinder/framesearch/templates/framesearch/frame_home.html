@@ -1,0 +1,94 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style/frame_search_style.css' %}">
+    <title>BMX Frame Sizing</title>
+</head>
+
+<body>
+    <div class="page_container">
+      <div class="heading-container">
+        <p id="page-heading">BMX FRAME Sizing</p>
+      </div>
+      <div class="form_container">
+        <form action="" class="bike_form" method="POST">
+          {% csrf_token %}
+          <div class="range_container">
+            <div class="input_section_outer">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Height</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <img id="height_image" class="form_image" src="https://static.thenounproject.com/png/1220594-200.png">
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="height_slider" name="height_slider" min="0" max="18" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="height_text">5'7"</p>
+                </div>
+              </div>
+            </div>
+            <div class="input_section_outer" id="middle_section">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Discipline</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <div class="form_image">
+                    <img id="disc_image1" class="form_image" src="https://static.thenounproject.com/png/113123-200.png" alt="discipline" width="100">
+                    <img id="disc_image2" class="form_image" src="https://static.thenounproject.com/png/35791-200.png" alt="discipline" width="100">
+                    <img id="disc_image3" class="form_image" src="https://www.scrappinstuff.com/store/images/RBS/BMX%20Bike.jpg" alt="discipline" width="100">
+                  </div>
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="disc_slider" name="disc_slider" min="0" max="18" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="TPS">Trails/Pumptrack -Park- Street/Flatland</p>
+                </div>
+              </div>
+            </div>
+            <div class="input_section_outer">
+              <div class="input_section_inner">
+                <div class="input_section_inner2" id="inner1">
+                  <p class="form_header">Price</p>
+                </div>
+                <div class="input_section_inner2" id="inner2">
+                  <img id="price_image" class="form_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Double-barred_dollar_sign.svg/1200px-Double-barred_dollar_sign.svg.png" alt="Dollar sign">
+                </div>
+                <div class="input_section_inner2" id="inner3">
+                  <input type="range" id="price_slider" name="price_slider" min="0" max="8" step="1">
+                </div>
+                <div class="input_section_inner2" id="inner4">
+                  <p id="price_text">less than: £8</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-div">
+            <div class="line-div">
+              <div class="search-line"></div>
+            </div>
+            <div class="submit-div">
+              <input type="submit" value="Search">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="{% static 'javascript/frame_search_js.js' %}"></script>
+
+</body>
+
+
+</html>
+
